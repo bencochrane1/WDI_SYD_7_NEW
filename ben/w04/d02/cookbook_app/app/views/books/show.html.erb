@@ -1,0 +1,12 @@
+<h1>Book Page</h1>
+
+<h2><%= @book.title %></h2>
+
+<h5>by <%= @book.chef %></h5>
+<p><%= image_tag @book.image  %></p>
+
+<%= link_to 'Delete Artist', @book, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+<p>
+    <%= link_to "Edit", edit_book_path(@book) %>
+</p>
