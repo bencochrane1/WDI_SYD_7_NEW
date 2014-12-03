@@ -1,0 +1,9 @@
+<h1>This Mixtape</h1>
+
+<%= @mixtape.name %><br>
+<%= @mixtape.description %><br>
+
+
+<%= link_to "Edit", edit_mixtape_path %>
+<%= link_to "Delete Mixtape", @mixtape, method: :delete, data: { confirm: 'Are you sure?'} %>
+

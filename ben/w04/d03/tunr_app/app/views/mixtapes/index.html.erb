@@ -1,0 +1,8 @@
+<h1>Mixtapes</h1>
+
+<%= @mixtapes.each do |mixtape| %>
+<%= mixtape.name %>
+<%= mixtape.description %>
+<% end %>
+
+<%= link_to "New Mixtape", new_mixtape_path %>

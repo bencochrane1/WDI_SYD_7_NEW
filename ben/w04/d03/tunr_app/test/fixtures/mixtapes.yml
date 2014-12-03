@@ -1,0 +1,19 @@
+# == Schema Information
+#
+# Table name: mixtapes
+#
+#  id          :integer          not null, primary key
+#  name        :string(255)
+#  description :text
+#  user_id     :integer
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  song_id: MyString
+  mixtape_id: MyString
+
+two:
+  song_id: MyString
+  mixtape_id: MyString
