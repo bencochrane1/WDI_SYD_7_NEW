@@ -1,9 +1,9 @@
-<h1>This Mixtape</h1>
+<h1>This Song</h1>
 
 <%= @song.name %><br>
 <%= @song.year %><br>
 
-
+<%= link_to "Back", songs_path %>
 <%= link_to "Edit", edit_song_path %>
 <%= link_to "Delete Mixtape", @song, method: :delete, data: { confirm: 'Are you sure?'} %>
 

@@ -1,8 +1,8 @@
 <h1>Mixtapes</h1>
 
-<%= @mixtapes.each do |mixtape| %>
+<% @mixtapes.each do |mixtape| %>
 <%= mixtape.name %>
-<%= mixtape.description %>
+<%= mixtape.description.truncate(100) %>
 <% end %>
 
 <%= link_to "New Mixtape", new_mixtape_path %>

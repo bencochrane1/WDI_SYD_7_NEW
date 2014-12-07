@@ -1,8 +1,8 @@
 <h1>Songs</h1>
 
 <% @songs.each do |song| %>
-<%= song.name %>
-<%= song.year %>
+<%= link_to song.name, song %><br>
+<%= song.year %><br>
 <% end %>
 
 <br>

@@ -1,0 +1,22 @@
+<h2><%= @song.name %></h2>
+
+<p>
+  <strong>Actions:</strong>
+  <% if user_signed_in? && current_user.admin? %>
+  <%= link_to "Edit", edit_song_path(@song) %> |
+  <%= link_to "Destroy", @song, method: :delete, data: { confirm: "Are you sure?" } %>
+  <% end %>
+</p>
+
+<hr>
+
+<dl>
+  <dt>Artist</dt>
+  <dd><%= link_to @song.artist.name, @song.artist %></dd>
+  <dt>Genre</dt>
+  <dd><%= @song.genre %></dd>
+  <dt>Year</dt>
+  <dd><%= @song.year %></dd>
+  <dt>Duration</dt>
+  <dd><%= @song.duration %></dd>
+</dl>

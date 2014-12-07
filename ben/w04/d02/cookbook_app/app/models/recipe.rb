@@ -11,9 +11,12 @@
 #  image        :string(255)
 #  created_at   :datetime
 #  updated_at   :datetime
+#  book_id      :integer
 #
 
 class Recipe < ActiveRecord::Base
+    validates :instructions, length: { minimum: 200 }
+
     belongs_to :book
     has_many :ingredients_recipes
     has_many :ingredients, through: :ingredients_recipes

@@ -1,0 +1,22 @@
+<%= form_for @artist do |f| %>
+
+<div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+</div>
+
+<div class="form-group">
+    <%= f.label :years_active %>
+    <%= f.text_field :years_active %>
+</div>
+
+<div class="form-group">
+    <%= f.label :bio %>
+    <%= f.text_area :bio %>
+</div>
+
+<div class="form-group">
+    <%= f.submit %>
+</div>
+
+<% end %>

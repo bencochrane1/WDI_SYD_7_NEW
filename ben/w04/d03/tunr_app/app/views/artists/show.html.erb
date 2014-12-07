@@ -1,0 +1,10 @@
+<h1>This Artist</h1>
+
+<%= @artist.name %><br>
+<%= @artist.years_active %><br>
+<%= @artist.bio %><br>
+
+
+<%= link_to "Edit", edit_artist_path %>
+<%= link_to "Delete Artist", @artist, method: :delete, data: { confirm: 'Are you sure?'} %>
+

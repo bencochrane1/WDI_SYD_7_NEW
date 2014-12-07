@@ -1,0 +1,38 @@
+<h2><%= @artist.name %></h2>
+
+<% if user_signed_in? && current_user.admin? %>
+<p>
+<strong>Actions:</strong>
+<%= link_to "Edit", edit_artist_path(@artist) %> |
+<%= link_to "Destroy", @artist, method: :delete, data: { confirm: "Are you sure?" } %>
+</p>
+<% end %>
+
+<hr>
+
+<h4><%= @artist.name %>'s Bio</h4>
+<p>
+<%= @artist.bio %>
+</p>
+
+<dl>
+  <dt>Label</dt>
+  <dd><%= @artist.label %></dd>
+  <dt>Hometown</dt>
+  <dd><%= @artist.hometown %></dd>
+  <dt>Years Active</dt>
+  <dd><%= @artist.years_active %></dd>
+</dl>
+
+<h4><%= @artist.name %>'s Songs</h4>
+
+<% if @artist.songs.count == 0 %>
+  <p>No songs yet...</p>
+<% else %>
+  <% @artist.songs.each do |song| %>
+    <div class="song">
+      <h3><%= link_to song.name, song %></h3>
+    </div>
+  <% end %>
+<% end %>
+

@@ -1,0 +1,10 @@
+<h1>Recipe Page</h1>
+
+<p>From Recipe Book:</p><%= @recipe.book.title if @recipe.book %><br>
+
+<%= @recipe.name %>
+<%= @recipe.course %>
+<%= image_tag @recipe.image %>
+
+<%= link_to "Edit", edit_recipe_path %>
+<%= link_to 'Delete Recipe', @recipe, method: :delete, data: { confirm: 'Are you sure?' } %>

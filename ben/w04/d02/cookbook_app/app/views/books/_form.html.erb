@@ -1,5 +1,14 @@
-<%= form_for @book do |f| %>
-    
+
+<ul id="errors">
+<% unless @book.errors.empty? %>
+    <% @book.errors.full_messages.each do |error| %>
+        <li><%= error %></li>
+    <% end %>
+<% end %>
+</ul>
+
+<%= form_for @book do |f| %>  
+
 
 <div class="form-group">
     <%= f.label :title %>

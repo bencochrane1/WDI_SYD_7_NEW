@@ -1,0 +1,29 @@
+@import url(http://fonts.googleapis.com/css?family=Lobster);
+
+html {
+  font-family: serif;
+  color: #00CDED;
+}
+
+h1, h2, h3, h4, h5, h6, p, li, dt, dd {
+  line-height: 1.5em;
+}
+
+h1, h2, h3, h4, h5, h6 { color: #80E6F6; font-family: Gruppo, sans-serif; }
+
+h1 { font-size: 7em; text-align: center; }
+h2 { font-size: 2em; }
+h3 { font-size: 1.8em; }
+h3 { font-size: 1.6em; }
+h4 { font-size: 1.4em; }
+h5 { font-size: 1.2em; }
+h6 { font-size: 1em; }
+
+a {
+  color: #00CDED;
+  text-decoration: none;
+  font-family: 'Lobster', cursive;
+}
+
+dl { margin: 20px 0; }
+dt { font-weight: bold; }
