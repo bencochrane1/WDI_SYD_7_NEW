@@ -1,0 +1,98 @@
+* {
+    box-sizing: border-box;
+}
+
+.clearfix:after {
+     visibility: hidden;
+     display: block;
+     font-size: 0;
+     content: " ";
+     clear: both;
+     height: 0;
+     }
+.clearfix { display: inline-block; }
+/* start commented backslash hack \*/
+* html .clearfix { height: 1%; }
+.clearfix { display: block; }
+
+
+.placeholder {
+    background-color: grey;
+}
+
+header {
+    height: 70px;
+    width: 100%;
+    background-color: rgba(0,0,0,0.4)
+}
+
+.logo {
+    padding: 15px;
+    color: white;
+    font-size: 30px;
+}
+
+main {
+    padding: 1.25em;
+    height: 610px;
+    width: 70%;
+    background-color: green;
+    float: left;
+}
+
+main ul li {
+    list-style-type: none; 
+    float: left;
+    padding: 10px;
+}
+
+aside {
+    width: 30%;
+    height: 610px;
+    float: left;
+}
+
+aside h1 {
+    text-align: center; 
+}
+
+footer {
+    height: 100px;
+    width: 100%;
+    float: left;
+    background-color: rgba(0,0,0,0.8)
+}
+
+#menu {
+    width: 100%;
+    height: 35px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    background-color: #8AD9FF;
+}
+
+#menu ul {
+    height: auto;
+    padding: 8px 0px;
+    margin: 0px;
+}
+
+#menu li { 
+display: inline; 
+padding: 20px; 
+}
+
+#menu a {
+    text-decoration: none;
+    color: #00F;
+    padding: 8px 8px 8px 8px;
+}
+
+#menu a:hover {
+    color: #F90;
+    background-color: #FFF;
+}
+
+
+

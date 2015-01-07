@@ -40,6 +40,11 @@ h1.onclick = function() {
 
 }
 
+
+
+$("#number_one").blur(function(){if $(this).val() === "") {alert("you must have a number");};});    whats wrong??
+
+
 // document.body.onclick = function() {
 //     alert("Body clicked");
 // }
