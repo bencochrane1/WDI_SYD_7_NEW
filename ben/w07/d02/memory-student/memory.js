@@ -99,8 +99,7 @@ var lettersSmall  = ['A', 'A', 'B', 'B', 'C', 'C', 'D', 'D', 'E', 'E'],
                      'P', 'P', 'Q', 'Q', 'R', 'R', 'S', 'S', 'T', 'T'];
 
 //array of letters. will change based on size of game.
-var letters,
-    contval;
+var letters;
 
 //last card/letter you clicked on. comes from the letter divs.
 var lastId = '',
@@ -112,28 +111,51 @@ $(function() {
     var clickedLetters = [];
     var letterIds = [];
     var matchingLetters = [];
-
+    $("#timer").text("Timer: " + 0);
 
     var small = $("#small");
     var medium = $("#medium");
     var large = $("#large");
     
+    var selector;
 
-    // $("#controls").on("click", "input", function(){
-    //     contval = $("#"+this.val());
-    //     if ($(this).val() == "small") {
-    //         letters = lettersSmall;
-    //     } else if ($(this).val() == "medium") {
-    //             letters = lettersMedium;
-    //     } else {
-    //         letters = lettersLarge;
-    //     }
-    //     console.log(letters);
-    // });
+
+    $("#controls").on("click", "input", function() {
+
+        var selector = $(this).val().toString().toLowerCase();
+        console.log(selector);
+
+        if (selector == "small") {
+            letters = lettersSmall;
+            var size = small;
+            
+        } else if (selector == "medium") {
+            letters = lettersMedium;
+            
+        } else {
+            letters = lettersLarge;
+            
+        }
+
+    });
+
 
     small.on("click", function(){
+        
+
+        var counter = 0;
+        var startTime = new Date();
+        
+        var myInterval = setInterval(function () {
+          ++counter;
+          $("#timer").text("Timer: " + counter);
+            
+        }, 1000);
+        
+
         $("#game").empty();
         var letters = _.shuffle(lettersSmall);
+        // console.log(letters);
 
         _.each(letters, function (el, i){
             
@@ -144,134 +166,65 @@ $(function() {
         });
 
 
+        $("span").hover(
+            function() {
+                $(this).toggleClass("hover");
+            }, function() {
+                $(this).toggleClass("hover");
+            }
+            );
+
         // get a specific letter to show when clicked 
         $("span").on("click", function(){
             
-            
-                $("i", this).removeClass("hidden").addClass('active');   
+
+
+                $("i", this).removeClass("hidden").toggleClass('active');   
                 letter_id = $(this).attr('id');
                 letter_value = $("i", this).text();
                 letterIds.push(letter_id);
                 clickedLetters.push(letter_value);
 
-                console.log(clickedLetters);
-                console.log(letterIds);
-                
-
                 if (clickedLetters.length == 2 && clickedLetters[0] != clickedLetters[1]) {
         
-                    $("i", this).removeClass("hidden").delay(1000).queue(function(){
-                        console.log("sdiosdoihdoi")
-                        $("span:not(.found) .active").addClass("hidden");
-                        // _.each(clickedLetters, function(el, i){
-                        //     // console.log(i);
-                        //     $("#"+i).addClass("hidden").dequeue();    
-                        // });
-                        // console.log(clickedLetters);
-                        
+                    $("i", this).removeClass("hidden").delay(400).queue(function(){
+                        $("span:not(.found) .active").addClass("hidden").toggleClass("active");
                     });
                         
                     clickedLetters = []; 
                     letterIds = []; 
+
 
                 } else if (clickedLetters.length == 2 && clickedLetters[0] == clickedLetters[1]) {
 
                     matchingLetters.push(letterIds);
                     matchingLetters = _.flatten(matchingLetters);
                     // console.log(matchingLetters);
-                        
+                    uniqmatches = _.uniq(matchingLetters);
+
                     $(".active").parent().addClass("found");
-                    // console.log(this);
-                    // _.each(matchingLetters, function(el, i){
-                    //     console.log(el);
-                    //     $("#"+el).addClass("found");
-                        
-                        
-                    // });
 
-                    clickedLetters = []; 
-                    letterIds = []; 
-                    // console.log("there is a match" + letterIds);
-                    // // $("span").addClass("found");
-                    // matchingIds.push(letterIds);
-                    // console.log(matchingIds);
-                }
+                    if (uniqmatches.length == letters.length) {
+                        $("span").addClass("won");
+                        $("#title").html("You bloody won").addClass("winning").effect("shake");
+                        var finishTime = new Date();
+                        clearInterval(myInterval);
+                        timeTaken = (finishTime - startTime)/1000;
+                        $("#timer").text("You won in " + counter + " seconds!");
+                        console.log(timeTaken + " seconds to finish the game");
 
-                
-                
-                              
+                        $("span").removeClass("active, found").delay(5000).queue(function(){
+                                $("#game").empty()
+                                $("#title").html("Memory").removeClass("winning");
+                                $("#timer").text("");
+
+                        });
+                    }
+
+                    clickedLetters = [];
+                }                   
         });
-
-
-
-
     });
 
 
-
-
-
-    // medium.on("click", function(){
-    //     $("#game").empty();
-    //     var letters = lettersMedium;
-
-    //     _.each(letters, function (el, i){
-            
-    //         $("#game").append("<span id=" + i + ">" + el + "</span>");
-    //         $("span").addClass("column");
-
-    //     });
-
-    // });
-
-    // large.on("click", function(){
-    //     $("#game").empty();
-    //     var letters = lettersLarge;
-
-    //     _.each(letters, function (el, i){
-            
-    //         $("#game").append("<span id=" + i + ">" + el + "</span>");
-    //         $("span").addClass("column");
-
-    //     });
-
-    // });
-
-
-
 });
-
-// Initializes the game and creates the board
-function startGame() {
-
-}
-
-
-function activate_letter(letter) {
-    letter.addClass('active');
-}
-
-// Flips a card and checks for a match
-function cardClick() {
-
-    var letter = $(this);
-
-    activate_letter(letter);
-
-
-}
-
-//Add hoverclass to cards.
-function hovering() {
-
-}
-
-//Start the timer
-function startTime() {
-
-}
-
-//Increment the timer and display the new time
-function updateTime() {
-
-}

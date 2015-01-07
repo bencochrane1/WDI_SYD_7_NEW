@@ -40,7 +40,6 @@
   width: 50px;
 }
 
-
 .active {
   visibility: visible;
 }
@@ -52,7 +51,10 @@
 
 /* apply with toggle class */
 .hover {
+  /*transition: 0.5s ease-in-out;*/
   background-color: #A6977B;
+/*  -webkit-transform: scale(1.2);
+        transform: scale(1.2);*/
 }
 /* apply when two cards match */
 .found {
@@ -64,4 +66,9 @@
   background-color: #F2F0CE;
   border: 1px solid #83A603;
   color: #83A603;
+}
+
+.winning {
+  font-size: 60px !important;
+  color: royalblue;
 }
