@@ -1,4 +1,7 @@
-FactoryGirl.define do
+FactoryGirl.define do  factory :tenant do
+    
+  end
+
 
     
   factory :apartment do
