@@ -20,8 +20,10 @@
 //= require_tree .
 
 
-var schoolsCollection = new Schools();
+var SchoolsApp = SchoolsApp || {};
 
-var allSchoolsView = new AllSchoolsView({ collection: schoolsCollection });
 
-$("body").append(allSchoolsView.el);
+$(function(){
+    SchoolsApp.router = new SchoolsApp.AppRouter();
+    Backbone.history.start();
+});

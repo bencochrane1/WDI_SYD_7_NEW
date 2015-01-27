@@ -1,4 +1,7 @@
-var LookUpView = Backbone.View.extend({
+var SchoolsApp =  SchoolsApp || {}
+
+
+SchoolsApp.LookUpView = Backbone.View.extend({
     tagName: 'div',
     className: 'singleschool shadow',
     template: JST['schools/lookup'],

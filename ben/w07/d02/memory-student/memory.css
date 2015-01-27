@@ -70,5 +70,6 @@
 
 .winning {
   font-size: 60px !important;
+  line-height: 100px;
   color: royalblue;
 }

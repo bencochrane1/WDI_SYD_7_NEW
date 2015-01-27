@@ -205,7 +205,7 @@ $(function() {
                     $(".active").parent().addClass("found");
 
                     if (uniqmatches.length == letters.length) {
-                        $("span").addClass("won");
+                        $("span").addClass("won").effect("shake");
                         $("#title").html("You bloody won").addClass("winning").effect("shake");
                         var finishTime = new Date();
                         clearInterval(myInterval);

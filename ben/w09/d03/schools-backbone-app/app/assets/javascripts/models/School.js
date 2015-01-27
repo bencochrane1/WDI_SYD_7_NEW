@@ -1,4 +1,6 @@
-var School = Backbone.Model.extend({
+var SchoolsApp = SchoolsApp || {};
+
+SchoolsApp.School = Backbone.Model.extend({
     urlRoot: '/schools',
 
     defaults: {

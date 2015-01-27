@@ -1,0 +1,11 @@
+<h1>View the note here</h1>
+
+
+<ul>
+    <li>Title: <%= @todo.text %></li>
+    <li>Note: <%= @todo.notes %></li>
+    <li>Completed? <%= @todo.completed %></li>
+    <li>Created: <%= @todo.created_at %></li>
+</ul>
+
+<%= link_to 'Back', root_path %>

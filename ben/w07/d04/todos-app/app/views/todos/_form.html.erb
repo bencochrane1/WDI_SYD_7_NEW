@@ -1,0 +1,22 @@
+<%= form_for(@todo) do |f| %>
+
+<div>
+  <%= f.label :title %><br>
+  <%= f.text_field :text %><br>
+</div>
+
+<div>
+  <%= f.label :notes %><br>
+  <%= f.text_field :notes %><br>
+</div>
+
+<div>
+  <%= f.label :completed %><br>
+  <%= f.check_box :completed %><br>
+</div>
+
+<div>
+  <%= f.submit %>
+</div>
+
+<% end %>

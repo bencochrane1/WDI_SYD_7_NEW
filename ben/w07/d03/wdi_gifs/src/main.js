@@ -39,11 +39,12 @@ var renderNavigation = function() {
 
 // shows all of the tags in a set of individual divs
 var renderTagList = function(tags) {
+    console.log("WHAT THE FUCK THEN?", tags);
     var listString = "";
     _.each(tags, function(tag) {
         listString += "<div class=\"tag\">" + tag + "</div>";
     });
-
+    console.log(listString);
     // add in each tag into the content id area
     $("#content").html(listString);
 };
@@ -75,6 +76,7 @@ $(function(){
     // gets the JSON of all tagnames from the gif base API
     // 
     $.getJSON("http://www.gifbase.com/js/tags.json", function(data) {
+        tags = data;
         // this shows all of the tags in their own div on the page with the 'data' from the API
         renderTagList(data);
 
